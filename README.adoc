@@ -1,7 +1,11 @@
 == Shopping ...
 
 == To test the application :
+
+[source,shell]
+----
 $ make
+----
 
 == To run the application
 
@@ -16,15 +20,16 @@ $ make
 $ make run
 ----
 
-Example of curl request :
-1. To diplays all the goods
+== Example of curl request :
+
+1. *To diplays all the goods* +
 Type in the browser *http://localhost:8080/goods*
 
-2. Display a good using its reference
-Type in the browser *http://localhost:8080/goods/$reference*
+2. *Display a good using its reference* +
+Type in the browser *http://localhost:8080/goods/$reference* +
 *$reference* is the reference of the good. Example 1, 2, 3, ...
 
-3. Add a good using curl
+3. *Add a good using curl* +
 Type this command in the terminal.
 [source,shell]
 ----

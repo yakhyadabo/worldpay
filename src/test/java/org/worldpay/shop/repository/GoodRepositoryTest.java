@@ -16,6 +16,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class GoodRepositoryTest {
 
+  private GoodRepository goodRepository = new GoodRepository();
+
   @Before
   public void setup() throws Exception {
     GoodRepository.clear();
@@ -23,15 +25,15 @@ public class GoodRepositoryTest {
 
   @Test
   public void should_not_return_non_existing_good(){
-    Optional<Good> good = GoodRepository.get(7777);
+    Optional<Good> good = goodRepository.findByReference(7777);
 
     assertThat(good).isEqualTo(Optional.empty());
   }
 
   @Test
   public void should_add_new_good(){
-    GoodRepository.add(new Good(7777, "Good 777", Price.of(777.00)));
-    Good good = GoodRepository.get(7777).get();
+    goodRepository.save(new Good(7777, "Good 777", Price.of(777.00)));
+    Good good = goodRepository.findByReference(7777).get();
 
     assertThat(good).isNotNull();
     assertThat(good.getReference()).isEqualTo(7777);
@@ -42,14 +44,14 @@ public class GoodRepositoryTest {
 
   @Test
   public void should_retrieve_all_goods(){
-    GoodRepository.add(new Good(7777, "Good 777", Price.of(777.00)));
-    GoodRepository.add(new Good(8888, "Good 888", Price.of(888.00)));
-    GoodRepository.add(new Good(9999, "Good 999", Price.of(999.00)));
+    goodRepository.save(new Good(7777, "Good 777", Price.of(777.00)));
+    goodRepository.save(new Good(8888, "Good 888", Price.of(888.00)));
+    goodRepository.save(new Good(9999, "Good 999", Price.of(999.00)));
 
-    Good good0 = GoodRepository.get(7777).get();
-    Good good1 = GoodRepository.get(8888).get();
-    Good good2 = GoodRepository.get(9999).get();
+    Good good0 = goodRepository.findByReference(7777).get();
+    Good good1 = goodRepository.findByReference(8888).get();
+    Good good2 = goodRepository.findByReference(9999).get();
 
-    assertThat(GoodRepository.getAll()).contains(good0,good1,good2);
+    assertThat(goodRepository.findAll()).contains(good0,good1,good2);
   }
 }

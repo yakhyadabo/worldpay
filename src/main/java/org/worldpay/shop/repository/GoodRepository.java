@@ -1,5 +1,6 @@
 package org.worldpay.shop.repository;
 
+import org.springframework.stereotype.Repository;
 import org.worldpay.shop.domain.Good;
 import org.worldpay.shop.domain.Price;
 
@@ -12,6 +13,8 @@ import java.util.stream.Collectors;
 /**
  * Created by Yakhya DABO on 16/10/16.
  */
+
+@Repository
 public class GoodRepository {
   public static Map<Integer, Good> goodMap = new HashMap<>();
 
@@ -19,15 +22,15 @@ public class GoodRepository {
     insertGoods();
   }
 
-  public static Optional<Good> get(Integer reference){
+  public Optional<Good> findByReference(Integer reference){
     return Optional.ofNullable(goodMap.get(reference));
   }
 
-  public static void add(Good good){
+  public void save(Good good){
     goodMap.put(good.getReference(),good);
   }
 
-  public static List<Good> getAll(){
+  public List<Good> findAll(){
     return goodMap.entrySet()
         .stream()
         .map(good -> good.getValue())

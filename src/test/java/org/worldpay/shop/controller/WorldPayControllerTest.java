@@ -51,6 +51,9 @@ public class WorldPayControllerTest {
   private WebApplicationContext webApplicationContext;
 
   @Autowired
+  private GoodRepository goodRepository;
+
+  @Autowired
   void setConverters(HttpMessageConverter<?>[] converters) {
 
     this.mappingJackson2HttpMessageConverter = Arrays.asList(converters).stream().filter(
@@ -80,7 +83,7 @@ public class WorldPayControllerTest {
 
   @Test
   public void should_return_good_when_it_exists() throws Exception {
-    GoodRepository.add(new Good(9999, "Good 999", Price.of(1000.00)));
+    goodRepository.save(new Good(9999, "Good 999", Price.of(1000.00)));
 
     mockMvc.perform(get("/goods/9999"))
         .andExpect(status().isOk())
@@ -93,9 +96,9 @@ public class WorldPayControllerTest {
 
   @Test
   public void should_return_all_goods() throws Exception {
-    GoodRepository.add(new Good(7777, "Good 777", Price.of(777.00)));
-    GoodRepository.add(new Good(8888, "Good 888", Price.of(888.00)));
-    GoodRepository.add(new Good(9999, "Good 999", Price.of(999.00)));
+    goodRepository.save(new Good(7777, "Good 777", Price.of(777.00)));
+    goodRepository.save(new Good(8888, "Good 888", Price.of(888.00)));
+    goodRepository.save(new Good(9999, "Good 999", Price.of(999.00)));
 
     mockMvc.perform(get("/goods"))
         .andExpect(status().isOk())

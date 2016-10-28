@@ -27,6 +27,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -69,7 +70,7 @@ public class WorldPayControllerTest {
 
   @Test
   public void should_successfully_create_new_good() throws Exception {
-    mockMvc.perform(post("/goods")
+    mockMvc.perform(put("/goods")
         .content(this.json(new Good(0,"Good 000", Price.of(12.00))))
         .contentType(contentType))
         .andExpect(status().isOk());

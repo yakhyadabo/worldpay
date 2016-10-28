@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Repository
 public class GoodRepository {
-  public static Map<Integer, Good> goodMap = new HashMap<>();
+  private static Map<Integer, Good> goodMap = new HashMap<>();
 
   static {
     insertGoods();

@@ -22,16 +22,16 @@ $ make run
 
 == Example of curl request :
 
-1. *To diplays all the goods* +
-Type in the browser *http://localhost:8080/goods*
+1. *To diplays all the offers* +
+Type in the browser *http://localhost:8080/offers*
 
-2. *Display a good using its reference* +
-Type in the browser *http://localhost:8080/goods/$reference* +
-*$reference* is the reference of the good. Example 1, 2, 3, ...
+2. *Display a offer using its reference* +
+Type in the browser *http://localhost:8080/offers/$reference* +
+*$reference* is the reference of the offer. Example 1, 2, 3, ...
 
-3. *Add a good using curl* +
+3. *Add a offer using curl* +
 Type this command in the terminal.
 [source,shell]
 ----
-$ curl -i -X POST -H "Content-Type:application/json" http://localhost:8080/goods/ -d '{"reference":11,"description":"Good 11 11 11","price":{"amount":110.0,"currency":"GBP"}}'
+$ curl -i -X POST -H "Content-Type:application/json" http://localhost:8080/offers/ -d '{"reference":11,"description":"Good 11 11 11","price":{"amount":110.0,"currency":"GBP"}}'
 ----

@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  */
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class GoodNotFoundException extends RuntimeException {
+public class OfferNotFoundException extends RuntimeException {
 
-    public GoodNotFoundException(Integer reference) {
-      super("could not find Good with ref '" + reference + "'.");
+    public OfferNotFoundException(Integer reference) {
+      super("could not find Offer with ref '" + reference + "'.");
     }
 }

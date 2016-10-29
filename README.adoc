@@ -25,11 +25,11 @@ $ make run
 1. *To diplays all the offers* +
 Type in the browser *http://localhost:8080/offers*
 
-2. *Display a offer using its reference* +
+2. *Display an offer using its reference* +
 Type in the browser *http://localhost:8080/offers/$reference* +
 *$reference* is the reference of the offer. Example 1, 2, 3, ...
 
-3. *Add a offer using curl* +
+3. *Add an offer using curl* +
 Type this command in the terminal.
 [source,shell]
 ----

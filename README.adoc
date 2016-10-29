@@ -1,6 +1,6 @@
 == Shopping ...
 
-== To test the application :
+== To run tests against the application :
 
 [source,shell]
 ----

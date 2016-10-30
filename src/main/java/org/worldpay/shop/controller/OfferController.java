@@ -28,13 +28,13 @@ public class OfferController {
 
   @RequestMapping(value = "/offers", method = RequestMethod.PUT)
   public ResponseEntity<Offer> addOffer(@RequestBody Offer offer) {
-    offerService.add(offer);
-    return new ResponseEntity<>(offer, HttpStatus.OK);
+    Offer savedOffer =  offerService.add(offer);
+    return new ResponseEntity<>(savedOffer, HttpStatus.OK);
   }
 
   @RequestMapping(value = "/offers/{reference}", method = RequestMethod.GET)
   public ResponseEntity<Offer> getOffer(@PathVariable Integer reference) {
-    return offerService.get(reference)
+    return offerService.getByReference(reference)
         .map(offer -> new ResponseEntity<>(offer, HttpStatus.OK))
         .orElseThrow(() -> new OfferNotFoundException(reference));
   }

@@ -33,5 +33,5 @@ Type in the browser *http://localhost:8080/offers/$reference* +
 Type this command in the terminal.
 [source,shell]
 ----
-$ curl -i -X POST -H "Content-Type:application/json" http://localhost:8080/offers/ -d '{"reference":11,"description":"Good 11 11 11","price":{"amount":110.0,"currency":"GBP"}}'
+$ curl -i -X PUT -H "Content-Type:application/json" http://localhost:8080/offers/ -d '{"reference":11,"description":"Good 11 11 11","price":{"amount":110.0,"currency":"GBP"}}'
 ----

@@ -19,13 +19,13 @@ public class OfferServiceImpl implements OfferService {
   private OfferRepository offerRepository;
 
   @Override
-  public Optional<Offer> get(Integer reference) {
+  public Optional<Offer> getByReference(Integer reference) {
     return offerRepository.findByReference(reference);
   }
 
   @Override
-  public void add(Offer offer) {
-    offerRepository.save(offer);
+  public Offer add(Offer offer) {
+    return offerRepository.save(offer);
   }
 
   @Override

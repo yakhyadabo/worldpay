@@ -26,8 +26,9 @@ public class OfferRepository {
     return Optional.ofNullable(offerHashMap.get(reference));
   }
 
-  public void save(Offer offer){
+  public Offer save(Offer offer){
     offerHashMap.put(offer.getReference(), offer);
+    return offerHashMap.get(offer.getReference());
   }
 
   public List<Offer> findAll(){

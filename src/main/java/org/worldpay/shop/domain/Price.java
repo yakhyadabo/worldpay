@@ -27,4 +27,22 @@ public class Price {
     return new Price(amount, Currency.GBP);
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    Price price = (Price) o;
+
+    if (!amount.equals(price.amount)) return false;
+    return currency == price.currency;
+
+  }
+
+  @Override
+  public int hashCode() {
+    int result = amount.hashCode();
+    result = 31 * result + currency.hashCode();
+    return result;
+  }
 }
